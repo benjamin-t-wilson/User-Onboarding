@@ -3,7 +3,6 @@ import React from "react";
 function UserCard(props) {
     return (
         <>
-        <h1>Users</h1>
         <div className="userCard">
             <h1 className="userName">{props.user.name}</h1>
             <p className="userEmail">Email: {props.user.email}</p>
