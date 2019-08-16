@@ -14,15 +14,24 @@ function FormBuilder({ errors, touched, values, status }) {
   }, [status]);
 
   return (
-    <div>
+    <>
       <header>User Onboarding</header>
       <Form>
+        <p>
+          <span>*</span> Name:
+        </p>
         <Field component="input" type="text" name="name" placeholder="Name" />
         {touched.name && errors.name && <p className="error">{errors.name}</p>}
+        <p>
+          <span>*</span> Email:
+        </p>
         <Field component="input" type="text" name="email" placeholder="Email" />
         {touched.email && errors.email && (
           <p className="error">{errors.email}</p>
         )}
+        <p>
+          <span>*</span> Password:
+        </p>
         <Field
           component="input"
           type="password"
@@ -33,8 +42,8 @@ function FormBuilder({ errors, touched, values, status }) {
           <p className="error">{errors.password}</p>
         )}
         <label>
-          I have read the Terms of Service
-          <Field type="checkbox" name="tos" checked={values.tos} />
+          <span>*</span> I have read the Terms of Service
+          <Field className="check" type="checkbox" name="tos" checked={values.tos} />
           {errors.tos && <p className="error">{errors.tos}</p>}
         </label>
 
@@ -45,7 +54,7 @@ function FormBuilder({ errors, touched, values, status }) {
           return <UserCard user={cv} />;
         })}
       </div>
-    </div>
+    </>
   );
 }
 
