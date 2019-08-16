@@ -51,7 +51,7 @@ function FormBuilder({ errors, touched, values, status }) {
       </Form>
       <div className="users">
         {users.map(cv => {
-          return <UserCard user={cv} />;
+          return <UserCard user={cv} key={cv.id} />;
         })}
       </div>
     </>
@@ -83,7 +83,6 @@ const formikHOC = withFormik({
   handleSubmit(values, { setStatus, resetForm }) {
     Axios.post("https://reqres.in/api/users", values)
       .then(res => {
-        console.log("submit res", res);
         setStatus(res.data);
         resetForm();
       })
